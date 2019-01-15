@@ -1,0 +1,37 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    name: seckkilling
+    url: jdbc:mysql://localhost:3306/seckkilling?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: sql123
+    druid: #连接池具体参数配置...#
+  freemarker:
+    cache: false
+    charset: UTF-8
+    content-type: text/html
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+    check-template-location: true
+  mvc:
+    static-path-pattern: /static/**
+  cache:
+    cache-names: item,promo
+    redis:
+      time-to-live: 600000ms
+  redis:
+    host: localhost
+    database: 0
+    port: 6379
+  data:
+    redis:
+      repositories:
+        enabled: true
+
+
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
